@@ -1,0 +1,42 @@
+Prompt (Timeline Visual Overhaul — paste this into Replit):
+The timeline needs a complete visual overhaul. Remove the straight vertical line entirely. Here's exactly what I want:
+
+CURVED / WINDING TIMELINE PATH
+
+Replace the straight line with an SVG curved path that winds and snakes down the page — like a winding road or river. It should curve left, then right, then left again as you scroll down, with each memory card sitting naturally along the curve at its corresponding point.
+The SVG path should be drawn dynamically to fit the full height of the timeline section and be fully responsive (recalculates on resize).
+Each memory card should be positioned along the curve — alternating organically on the left and right sides of the winding path, following its natural flow. Cards should feel like they're resting along a journey, not just stacked in a list.
+
+
+SCROLL-DRIVEN LIGHT REVEAL EFFECT
+
+The SVG path should start completely unlit / faded — render it in a very dim, barely visible tone like rgba(117, 22, 46, 0.15).
+As the user scrolls down, a glowing light traces the path from top to bottom — like lighting up a trail. Use a stroke-dashoffset animation tied to the scroll position using JavaScript. As the user scrolls further, more of the path gets "lit up" in a warm glowing color (#75162E or a warm golden #C8843A glow).
+Add a soft glowing dot (like a firefly or candle flame) that travels along the path ahead of the revealed section — it should pulse gently and move smoothly as the user scrolls, staying just at the leading edge of the lit portion.
+The glow effect should have a soft blur/bloom around it — use CSS filter drop-shadow or a blurred duplicate SVG element underneath to create a warm halo around the lit path.
+
+
+CARD ENTRANCE ANIMATIONS
+
+As the glowing dot reaches each memory card's position on the path, that card should animate in — not just a simple fade, but something more dramatic:
+
+The polaroid photo should drop in from slightly above with a gentle bounce, as if someone just pinned it to a board.
+The text content slides in from the side opposite to the photo.
+A small heart or spark burst plays at the path node point when that memory unlocks.
+
+
+Cards that haven't been reached yet by the scroll should remain invisible or very ghosted out (opacity ~0.05) so the focus is always on the currently revealed section.
+
+
+ATMOSPHERE
+
+Add a very subtle parallax effect to the background of the timeline section — a faint texture or pattern (soft floral, noise, or bokeh dots) that moves slightly slower than the scroll, giving a sense of depth.
+The overall section background should be the warm cream #F2E5C5 but with a gentle radial vignette darkening toward the edges, keeping the eye focused on the winding path in the center.
+
+
+TECHNICAL NOTES FOR REPLIT
+
+Use vanilla JS with window.addEventListener('scroll', ...) and SVGPathElement.getTotalLength() + getPointAtLength() to drive the dot position along the path.
+The SVG should be position: absolute behind all the cards, spanning the full height of the timeline container.
+Make sure this is fully responsive — on mobile, the path can simplify to gentler curves (less dramatic winding) so cards still fit cleanly.
+Comment every major block of code clearly so edits are easy later.
