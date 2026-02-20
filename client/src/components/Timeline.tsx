@@ -28,7 +28,7 @@ const timelineEvents = [
     date: "The 'I Love You'",
     title: "Three Little Words",
     message: "The moment the world stood still and I finally said what my heart already knew.",
-    image: img1, 
+    image: img1,
   },
   {
     date: "Meeting the Family",
@@ -115,14 +115,14 @@ export default function Timeline() {
   }, [smoothProgress, pathLength]);
 
   return (
-    <section 
-      id="timeline" 
+    <section
+      id="timeline"
       ref={containerRef}
-      className="py-32 md:py-48 px-4 md:px-8 bg-background relative overflow-hidden" 
+      className="py-32 md:py-48 px-4 md:px-8 bg-background relative overflow-hidden"
       data-testid="section-timeline"
     >
       {/* Parallax Background Elements */}
-      <motion.div 
+      <motion.div
         style={{ y: useTransform(scrollYProgress, [0, 1], [0, 100]) }}
         className="absolute inset-0 opacity-10 pointer-events-none"
       >
@@ -135,7 +135,7 @@ export default function Timeline() {
 
       <div className="max-w-6xl mx-auto relative">
         <div className="text-center mb-32 relative z-10">
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -147,7 +147,7 @@ export default function Timeline() {
         </div>
 
         {/* SVG Winding Path */}
-        <svg 
+        <svg
           className="absolute inset-0 w-full h-full pointer-events-none"
           style={{ overflow: "visible" }}
         >
@@ -196,10 +196,10 @@ export default function Timeline() {
 
         <div className="relative z-10">
           {timelineEvents.map((event, index) => (
-            <TimelineItem 
-              key={index} 
-              event={event} 
-              index={index} 
+            <TimelineItem
+              key={index}
+              event={event}
+              index={index}
               pathRef={pathRef}
               pathLength={pathLength}
               progress={smoothProgress}
@@ -215,7 +215,7 @@ function TimelineItem({ event, index, pathRef, pathLength, progress }: any) {
   const itemRef = useRef(null);
   const isInView = useInView(itemRef, { once: false, margin: "-20% 0px -20% 0px" });
   const [pos, setPos] = useState({ x: 0, y: 0 });
-  
+
   // Calculate vertical position to place along the curve
   useEffect(() => {
     if (pathRef.current && pathLength) {
@@ -228,13 +228,13 @@ function TimelineItem({ event, index, pathRef, pathLength, progress }: any) {
   const isEven = index % 2 === 0;
 
   return (
-    <div 
+    <div
       ref={itemRef}
       className="relative mb-48 md:mb-64 min-h-[400px]"
       style={{ top: 0 }}
     >
       {/* Node Heart Burst */}
-      <div 
+      <div
         className="absolute left-1/2 -translate-x-1/2 pointer-events-none"
         style={{ top: '50%' }}
       >
@@ -256,18 +256,18 @@ function TimelineItem({ event, index, pathRef, pathLength, progress }: any) {
           <motion.div
             initial={{ opacity: 0.05, y: -50, rotate: isEven ? -5 : 5 }}
             whileInView={{ opacity: 1, y: 0, rotate: isEven ? -2 : 2 }}
-            viewport={{ once: false, margin: "-100px" }}
-            transition={{ 
-              type: "spring", 
-              stiffness: 100, 
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{
+              type: "spring",
+              stiffness: 100,
               damping: 15,
               delay: 0.2
             }}
             className="polaroid max-w-[280px] md:max-w-sm group"
           >
             <div className="aspect-[4/5] overflow-hidden mb-5">
-              <img 
-                src={event.image} 
+              <img
+                src={event.image}
                 alt={event.title}
                 className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-700"
               />
@@ -281,7 +281,7 @@ function TimelineItem({ event, index, pathRef, pathLength, progress }: any) {
           <motion.div
             initial={{ opacity: 0.05, x: isEven ? 50 : -50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: false, margin: "-100px" }}
+            viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, delay: 0.4 }}
             className={`text-center ${isEven ? 'md:text-left' : 'md:text-right'}`}
           >

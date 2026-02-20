@@ -73,7 +73,7 @@ export default function Countdown() {
               className="text-3xl md:text-5xl lg:text-6xl font-serif text-primary-foreground tracking-wide italic"
               data-testid="text-countdown-heading"
             >
-              Something special is almost here...
+              Leeshaa's Birthday Countdown...
             </motion.h2>
 
             <motion.div 
