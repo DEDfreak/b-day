@@ -1,0 +1,45 @@
+Prompt:
+Build a romantic, beautiful single-page website as a birthday gift for my girlfriend. Use the following exact color palette throughout: #3A000C (deep dark maroon), #F2E5C5 (warm cream), #75162E (rich burgundy), #550B18 (dark wine). Use elegant serif fonts (like Playfair Display) for headings and a clean sans-serif for body text. The overall feel should be warm, intimate, luxurious — like a love letter turned into a website.
+
+SECTION 1 — Birthday Countdown (Landing Screen)
+
+This is the first thing she sees. It should take up the full viewport height.
+Display a large, elegant countdown timer counting down to February 22nd (her birthday).
+Show Days, Hours, Minutes, Seconds in beautifully styled individual cards or boxes using the color palette.
+Add a soft animated background — floating rose petals, soft particles, or a subtle animated gradient using the maroon/wine tones.
+Add a short romantic heading above the timer like "Something special is almost here..." or similar.
+When the countdown hits zero, trigger a celebration animation (confetti, petals bursting, or sparkles) and replace the timer with a big "Happy Birthday, [Name]! 🎂" message with a glowing or animated text effect.
+Add a gentle pulsing scroll indicator at the bottom to invite her to scroll down.
+
+
+SECTION 2 — Relationship Timeline
+
+After scrolling past the countdown, reveal a full, beautiful vertical or alternating zigzag timeline of our relationship.
+The timeline has 13–14 entries. Each entry has:
+
+A date/title label (styled in burgundy or wine tone)
+A photo slot — use placeholder images for now, clearly marked so they can be swapped out easily (e.g., <!-- PHOTO 1 --> comments or named placeholder divs)
+A text/caption area for a personal message (also clearly marked as placeholder text like [Write your message here])
+
+
+Photo display must be fancy and dynamic — implement one or more of these effects:
+
+Photos appear in polaroid-style frames that tilt slightly and straighten on hover
+Or photos reveal themselves with a cinematic curtain-wipe or fade-in as they scroll into view
+Or photos are displayed in slightly rotated cards that flip or zoom subtly on hover
+Add a soft drop shadow and warm-toned border or frame to each photo
+
+
+Scroll animations: Each timeline entry should animate into view as the user scrolls — slide in from alternating left/right sides, with a gentle fade.
+The timeline connector line should be styled elegantly — a thin wine-colored line with small heart or diamond markers at each stop.
+The section should have a warm cream (#F2E5C5) background with subtle texture or noise overlay to feel soft and tactile.
+
+
+GENERAL REQUIREMENTS
+
+Fully responsive — must look beautiful on mobile, tablet, and desktop.
+Smooth scroll behavior throughout.
+No harsh transitions — everything should feel soft, warm, and romantic.
+Use CSS animations and IntersectionObserver for scroll-triggered effects (no heavy external animation libraries unless necessary).
+Code should be clean and well-commented so photos and text can be easily replaced later.
+All placeholder photo slots should be clearly labeled (Photo 1, Photo 2, etc.) and placeholder captions clearly marked.
