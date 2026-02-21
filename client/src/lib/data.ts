@@ -106,7 +106,7 @@ With you i feel like i belong exactly there. It feels warm, real and something i
     },
     {
         id: "secret",
-        date: "Moving In",
+        date: "secret",
         title: "Our Own Space",
         message: "Turning a house into a home, one memory at a time. I love our life together.",
         fullStory: "Boxes everywhere, mismatched furniture, and the smell of fresh paint. It was chaotic and perfect. Learning your morning routines, finding where you like to hide the spare keys, and waking up next to you every day—it's the best chapter yet. Our home is my favorite place in the world.",
@@ -114,15 +114,15 @@ With you i feel like i belong exactly there. It feels warm, real and something i
     },
     {
         id: "secret 2",
-        date: "One Year Down",
-        title: "One Year Down",
+        date: "secret ",
+        title: "secret 2",
         message: "A year of growth, laughter, and so much love. Here's to forever.",
         fullStory: "365 days of being yours. We've grown together, supported each other through the hard days, and celebrated the small wins. Looking back at our first photos compared to now, I see two people who found their missing piece. I can't wait for all the years still to come.",
         image: img1,
     },
     {
         id: "secret 3",
-        date: "Today",
+        date: "secret",
         title: "Celebrating You",
         message: "Happy Birthday to my favorite person. You make every day a gift.",
         fullStory: "Today is all about you, Leeshaa. The world became a brighter place the day you were born. I'm so grateful I get to walk through life by your side. You are my best friend, my rock, and my greatest love. Happy Birthday, beautiful. Here's to making a million more memories.",
