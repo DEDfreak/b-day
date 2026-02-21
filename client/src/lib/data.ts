@@ -3,6 +3,11 @@ import img2 from "@/assets/images/placeholder-2.png";
 import img3 from "@/assets/images/placeholder-3.png";
 import img4 from "@/assets/images/Lb.jpeg";
 import img5 from "@/assets/images/lb2.jpeg";
+import img6 from "@/assets/images/l-mem1.jpeg";
+import img7 from "@/assets/images/minion-mem1.jpeg";
+import img8 from "@/assets/images/nozu-mem1.jpeg";
+import img9 from "@/assets/images/r-mem1.jpeg";
+import img10 from "@/assets/images/ss-mem1.jpeg";
 
 // Set target to Feb 22, 2026, midnight
 export const TARGET_DATE = new Date("2026-02-22T00:00:00").getTime();
@@ -39,13 +44,13 @@ export const timelineEvents: Memory[] = [
         message: "Thank god for aligning all the stars.",
         fullStory: `I remember my life was very chaotic until you entered it. At first, it was just gossip and drama, you enjoyed it, and so did I. Who knew you would become my whole world so soon?
 
-We soon bonded over texts and calls. I started to feel like a kid again. I still remember the butterflies I used to feel after calling you cute and pretty.
+We soon bonded over texts and calls. I started to feel like a kid again. I still remember the butterflies I felt after calling you cute and pretty.
 
-I didn’t know what image of me you had in your mind, but I wanted to show you that I wasn’t a bad person, no matter what kind of situation we were in. Eventually, I developed a huge crush on you. I won’t lie i questioned a lot of things, i was afraid to develop one sided feeling, but deep down I knew what I was feeling was pure.
+I didn’t know what image of me you had in your mind, but I wanted to show you that I wasn’t a bad person, no matter what kind of situation we were in. Eventually, I developed a huge crush on you. And I won’t lie, I questioned a lot of things, I was afraid to develop one sided feelings, but deep down I knew what I was feeling was pure.
 
-Now that i think of it, there were so many green flags. From our conversations, i could quickly gather what kind of a person you are. I had never met someone so mature, understanding, sweet and lovely human like you. Your extreme hotness and beauty were a pile of cherry on top. It felt amazing to feel like a boy again to eagerly wait for your texts and to take intentional pauses before replying, just to avoid looking desperate. And to wonder, does she like me back?`,
-        image: img4,
-        gallery: [img4, img5, img3, img2]
+Now that i think of it, there were so many green flags. I felt so many things for the first time. Secretly you were defining what love is for me. From our conversations, i could quickly gather what kind of a person you are. I had never met someone so mature, understanding, sweet and lovely human like you. Your extreme hotness and beauty were a pile of cherry on top. It felt amazing to feel like a boy again to eagerly wait for your texts and to take intentional pauses before replying, just to avoid looking desperate. And to wonder, does she like me back?`,
+        image: img6,
+        gallery: [img6, img7, img8, img9, img10]
     },
     {
         id: "first-meetup",
@@ -59,8 +64,8 @@ It was Diwali, and I was on my way to Bhayandar. For the record, I still thought
 I didn't think we would meet again after this. I knew i had started liking you and i didn't want to be just a fling. Again, thank god my family decided to go to Mira road and also agreed with taking nozu with us. I knew it was a very difficult day for you and all I wanted was to be there. I'm just glad i could make u feel better. But honestly SO MANY BUTTERFLIES. I mean wtf, you were laying your head on my shoulders, hugging me and feeding me banana??? 
 
 Then came our first kiss. It was the perfect setting. I hesitated at first, but obviously i would have been a fool not to kiss you that day. Things were so complicated but I'm so glad everything worked out eventually. You stayed strong through everything, that made me respect you even more. I admire your resolve, intentions, thought process and the things you stand for, a lot. I knew you were the right person, i just wanted to make u feel the same about me too. Every day has been amazing since. I just had to ask you to be my girlfriend now...`,
-        image: img2,
-        gallery: [img2, img3, img1]
+        image: img4,
+        gallery: [img4, img5, img3, img2]
     },
     {
         id: "i-love-you",
