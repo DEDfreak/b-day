@@ -4,17 +4,42 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
+import { useState, useEffect } from "react";
 import Home from "@/pages/home";
 import MemoryPage from "@/pages/MemoryPage";
+import AuthPage from "@/pages/AuthPage";
 // import BirthdayPreview from "@/pages/BirthdayPreview";
 
 function Router() {
+  const [unlocked, setUnlocked] = useState(() => {
+    return localStorage.getItem("site_unlocked") === "true";
+  });
+
+  const handleUnlock = () => {
+    setUnlocked(true);
+    localStorage.setItem("site_unlocked", "true");
+  };
+
   return (
     <Switch>
-      <Route path="/" component={Home} />
-      {/* <Route path="/preview" component={BirthdayPreview} /> */}
-      <Route path="/memory/:id" component={MemoryPage} />
-      <Route component={NotFound} />
+      <Route path="/preview">
+        {() => {
+          // Special preview route that bypasses auth and countdown
+          return <Home isPreview={true} />;
+        }}
+      </Route>
+
+      {!unlocked ? (
+        <Route>
+          <AuthPage onUnlock={handleUnlock} />
+        </Route>
+      ) : (
+        <>
+          <Route path="/">{() => <Home />}</Route>
+          <Route path="/memory/:id" component={MemoryPage} />
+          <Route component={NotFound} />
+        </>
+      )}
     </Switch>
   );
 }

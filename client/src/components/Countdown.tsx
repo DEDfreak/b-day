@@ -6,18 +6,31 @@ import heroBg from "@/assets/images/hero-bg.png";
 // Set target to Feb 22, 2026, midnight
 const TARGET_DATE = new Date("2026-02-22T00:00:00").getTime();
 
-export default function Countdown() {
+interface CountdownProps {
+  forceOver?: boolean;
+  onFinished?: () => void;
+}
+
+export default function Countdown({ forceOver = false, onFinished }: CountdownProps) {
   const [timeLeft, setTimeLeft] = useState(TARGET_DATE - Date.now());
 
   useEffect(() => {
+    if (forceOver) return;
+
     const timer = setInterval(() => {
       const remaining = TARGET_DATE - Date.now();
-      setTimeLeft(remaining > 0 ? remaining : 0);
+      if (remaining <= 0) {
+        setTimeLeft(0);
+        onFinished?.();
+        clearInterval(timer);
+      } else {
+        setTimeLeft(remaining);
+      }
     }, 1000);
     return () => clearInterval(timer);
-  }, []);
+  }, [forceOver, onFinished]);
 
-  const isZero = timeLeft <= 0;
+  const isZero = forceOver || timeLeft <= 0;
 
   const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
   const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -190,22 +203,24 @@ export default function Countdown() {
         )}
       </div>
 
-      <motion.div
-        className="absolute bottom-8 md:bottom-12 flex flex-col items-center gap-4 cursor-pointer text-primary-foreground/60 hover:text-primary-foreground transition-colors z-20"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-        onClick={() => {
-          document.getElementById('timeline')?.scrollIntoView({ behavior: 'smooth' });
-        }}
-        data-testid="button-scroll-down"
-      >
-        <span className="text-xs uppercase tracking-[0.4em] font-sans">
-          {isZero ? "Our Story Starts Here" : "Scroll"}
-        </span>
-        <div className={`w-10 h-10 rounded-full border border-primary-foreground/20 flex items-center justify-center ${!isZero && "border-none"}`}>
-          <ChevronDown size={20} strokeWidth={1.5} />
-        </div>
-      </motion.div>
+      {isZero && (
+        <motion.div
+          className="absolute bottom-8 md:bottom-12 flex flex-col items-center gap-4 cursor-pointer text-primary-foreground/60 hover:text-primary-foreground transition-colors z-20"
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+          onClick={() => {
+            document.getElementById('timeline')?.scrollIntoView({ behavior: 'smooth' });
+          }}
+          data-testid="button-scroll-down"
+        >
+          <span className="text-xs uppercase tracking-[0.4em] font-sans">
+            Our Story Starts Here
+          </span>
+          <div className="w-10 h-10 rounded-full border border-primary-foreground/20 flex items-center justify-center">
+            <ChevronDown size={20} strokeWidth={1.5} />
+          </div>
+        </motion.div>
+      )}
     </section>
   );
 }
