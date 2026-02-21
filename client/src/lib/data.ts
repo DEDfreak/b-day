@@ -1,18 +1,24 @@
 import img1 from "@/assets/images/placeholder-1.png";
 import img2 from "@/assets/images/placeholder-2.png";
 import img3 from "@/assets/images/placeholder-3.png";
-import img4 from "@/assets/images/Lb.jpeg";
-import img5 from "@/assets/images/lb2.jpeg";
+
 import img6 from "@/assets/images/l-mem1.jpeg";
 import img7 from "@/assets/images/minion-mem1.jpeg";
 import img8 from "@/assets/images/nozu-mem1.jpeg";
 import img9 from "@/assets/images/r-mem1.jpeg";
 import img10 from "@/assets/images/ss-mem1.jpeg";
 
+import img4 from "@/assets/images/Lb.jpeg";
+import img5 from "@/assets/images/lb2.jpeg";
+import img11 from "@/assets/images/r&n-mem2.jpeg";
+import img12 from "@/assets/images/gf-mem2.jpeg";
+import img13 from "@/assets/images/or-mem2.jpeg";
+
+
 // Set target to Feb 22, 2026, midnight
 export const TARGET_DATE = new Date("2026-02-22T00:00:00").getTime();
 // Transition speed is 30 minutes in milliseconds
-export const UNLOCK_INTERVAL = 30 * 60 * 1000;
+export const UNLOCK_INTERVAL = 60 * 60 * 1000;
 
 export function isMemoryUnlocked(index: number) {
     const now = Date.now();
@@ -61,11 +67,11 @@ I felt so many things for the first time, things i never thought i would feel, a
 
 It was Diwali, and I was on my way to Bhayandar. For the record, I still thought you didn’t like me back. When I first saw you, I secretly wished you had come in your orange Diwali dress. But maybe it’s good you didn’t… because if you had, it would’ve been way too obvious how much I have fallen for you. Baccha, you were looking so beautiful, and i think it is one of my favourite memories, smoking weed and standing beside you. I wish i could freeze that moment and relive it.
 
-I didn't think we would meet again after this. I knew i had started liking you and i didn't want to be just a fling. Again, thank god my family decided to go to Mira road and also agreed with taking nozu with us. I knew it was a very difficult day for you and all I wanted was to be there. I'm just glad i could make u feel better. But honestly SO MANY BUTTERFLIES. I mean wtf, you were laying your head on my shoulders, hugging me and feeding me banana??? 
+I didn't think we would meet again after this. I knew i had started liking you and i didn't want to be just a fling. Again, thank god my family decided to go to Mira road and also agreed with taking nozu with us. I knew it was a very difficult day for you and all I wanted was to be there. I'm just glad i could make u feel better. But honestly SO MANY BUTTERFLIES. I mean wtf, you were laying your head on my shoulders, hugging me and feeding me a banana??? 
 
 Then came our first kiss. It was the perfect setting. I hesitated at first, but obviously i would have been a fool not to kiss you that day. Things were so complicated but I'm so glad everything worked out eventually. You stayed strong through everything, that made me respect you even more. I admire your resolve, intentions, thought process and the things you stand for, a lot. I knew you were the right person, i just wanted to make u feel the same about me too. Every day has been amazing since. I just had to ask you to be my girlfriend now...`,
         image: img4,
-        gallery: [img4, img5, img3, img2]
+        gallery: [img4, img5, img12, img13]
     },
     {
         id: "i-love-you",
