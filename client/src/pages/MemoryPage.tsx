@@ -70,6 +70,76 @@ export default function MemoryPage({ id: propId, onLock }: MemoryPageProps) {
 
     return (
         <div className="min-h-screen bg-gradient-to-b from-[#3A000C] to-[#550B18] text-primary-foreground overflow-x-hidden relative">
+            {/* Background Texture & Decorations */}
+            <div className="absolute inset-0 pointer-events-none opacity-20 mix-blend-overlay"
+                style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3F%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}
+            />
+
+            {/* Golden Floating Petals */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                {Array.from({ length: 15 }).map((_, i) => (
+                    <motion.div
+                        key={i}
+                        className="absolute text-[#F2E5C5]/10"
+                        initial={{
+                            x: Math.random() * 100 + "%",
+                            y: "-10%",
+                            rotate: Math.random() * 360,
+                            scale: Math.random() * 0.5 + 0.3
+                        }}
+                        animate={{
+                            y: "110%",
+                            x: (Math.random() * 100 - 50) + "%",
+                            rotate: 360
+                        }}
+                        transition={{
+                            duration: Math.random() * 20 + 20,
+                            repeat: Infinity,
+                            ease: "linear",
+                            delay: Math.random() * 15
+                        }}
+                    >
+                        <Heart size={20} fill="currentColor" stroke="none" />
+                    </motion.div>
+                ))}
+            </div>
+
+            {/* Twinkling Golden Dust */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                {Array.from({ length: 30 }).map((_, i) => (
+                    <motion.div
+                        key={`dust-${i}`}
+                        className="absolute w-1 h-1 bg-[#F2E5C5] rounded-full blur-[1px]"
+                        initial={{
+                            x: Math.random() * 100 + "%",
+                            y: Math.random() * 100 + "%",
+                            opacity: 0
+                        }}
+                        animate={{
+                            opacity: [0, 0.4, 0],
+                            scale: [1, 1.5, 1]
+                        }}
+                        transition={{
+                            duration: Math.random() * 3 + 2,
+                            repeat: Infinity,
+                            ease: "easeInOut",
+                            delay: Math.random() * 10
+                        }}
+                    />
+                ))}
+            </div>
+
+            {/* Artistic Golden Vines Decor */}
+            <div className="absolute inset-0 opacity-5 pointer-events-none">
+                <svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-[#F2E5C5]">
+                    <path d="M0 200 C 200 100, 400 300, 600 200 S 900 400, 1000 300" stroke="currentColor" strokeWidth="1" fill="none" />
+                    <path d="M1000 700 C 800 800, 600 600, 400 700 S 100 500, 0 600" stroke="currentColor" strokeWidth="1" fill="none" />
+                    <circle cx="150" cy="180" r="2" fill="currentColor" />
+                    <circle cx="450" cy="280" r="1.5" fill="currentColor" />
+                    <circle cx="850" cy="380" r="2" fill="currentColor" />
+                </svg>
+            </div>
+
             {onLock && (
                 <motion.button
                     initial={{ opacity: 0, scale: 0.5 }}
