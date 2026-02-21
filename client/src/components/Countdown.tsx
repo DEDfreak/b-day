@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Heart } from "lucide-react";
 import heroBg from "@/assets/images/hero-bg.png";
 
 // Set target to Feb 22, 2026, midnight
@@ -25,7 +25,7 @@ export default function Countdown() {
   const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
   return (
-    <section 
+    <section
       className="relative min-h-[100dvh] flex flex-col items-center justify-center overflow-hidden bg-foreground text-background"
       style={{
         backgroundImage: `linear-gradient(to bottom, rgba(58, 0, 12, 0.7), rgba(85, 11, 24, 0.9)), url(${heroBg})`,
@@ -34,39 +34,90 @@ export default function Countdown() {
       }}
       data-testid="section-countdown"
     >
-      {/* Floating particles - soft animated background */}
+      {/* Floating particles - Dynamic based on state */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {Array.from({ length: 20 }).map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute rounded-full bg-primary/30 blur-sm"
-            initial={{
-              x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1000),
-              y: (typeof window !== 'undefined' ? window.innerHeight : 1000) + 100,
-              scale: Math.random() * 2 + 1,
-            }}
-            animate={{
-              y: -100,
-              x: `calc(${Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1000)}px + ${Math.random() * 100 - 50}px)`,
-            }}
-            transition={{
-              duration: Math.random() * 15 + 10,
-              repeat: Infinity,
-              ease: "linear",
-              delay: Math.random() * 10,
-            }}
-            style={{
-              width: `${Math.random() * 30 + 10}px`,
-              height: `${Math.random() * 30 + 10}px`,
-            }}
-          />
-        ))}
+        {!isZero ? (
+          // Countdown Bubbles
+          Array.from({ length: 20 }).map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute rounded-full bg-primary/30 blur-sm"
+              initial={{
+                x: Math.random() * 100 + "%",
+                y: "110%",
+                scale: Math.random() * 2 + 1,
+              }}
+              animate={{ y: "-10%" }}
+              transition={{
+                duration: Math.random() * 15 + 10,
+                repeat: Infinity,
+                ease: "linear",
+                delay: Math.random() * 10,
+              }}
+              style={{
+                width: `${Math.random() * 30 + 10}px`,
+                height: `${Math.random() * 30 + 10}px`,
+              }}
+            />
+          ))
+        ) : (
+          <>
+            {/* Birthday Hearts */}
+            {Array.from({ length: 30 }).map((_, i) => (
+              <motion.div
+                key={`heart-${i}`}
+                className="absolute text-primary/40"
+                initial={{
+                  x: Math.random() * 100 + "%",
+                  y: "110%",
+                  scale: Math.random() * 1 + 0.5,
+                  rotate: Math.random() * 360,
+                }}
+                animate={{
+                  y: "-10%",
+                  rotate: Math.random() * 360 + 180,
+                }}
+                transition={{
+                  duration: Math.random() * 10 + 10,
+                  repeat: Infinity,
+                  ease: "linear",
+                  delay: Math.random() * 10,
+                }}
+              >
+                <Heart fill="currentColor" size={Math.random() * 20 + 10} />
+              </motion.div>
+            ))}
+
+            {/* Birthday Sparkles */}
+            {Array.from({ length: 40 }).map((_, i) => (
+              <motion.div
+                key={`sparkle-${i}`}
+                className="absolute w-1 h-1 bg-primary-foreground rounded-full shadow-[0_0_8px_#F2E5C5]"
+                initial={{
+                  x: Math.random() * 100 + "%",
+                  y: Math.random() * 100 + "%",
+                  opacity: 0,
+                }}
+                animate={{
+                  opacity: [0, 1, 0],
+                  scale: [0.5, 1.2, 0.5],
+                }}
+                transition={{
+                  duration: Math.random() * 3 + 2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: Math.random() * 5,
+                }}
+              />
+            ))}
+          </>
+        )}
       </div>
 
-      <div className="relative z-10 text-center px-4 w-full max-w-5xl mx-auto flex flex-col items-center gap-10 md:gap-16">
+      <div className="relative z-10 text-center px-4 w-full max-w-5xl mx-auto flex flex-col items-center">
         {!isZero ? (
-          <>
-            <motion.h2 
+          <div className="flex flex-col items-center gap-10 md:gap-16">
+            <motion.h2
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, ease: "easeOut" }}
@@ -76,7 +127,7 @@ export default function Countdown() {
               Leeshaa's Birthday Countdown...
             </motion.h2>
 
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
@@ -101,57 +152,59 @@ export default function Countdown() {
                 </div>
               ))}
             </motion.div>
-          </>
+          </div>
         ) : (
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.5, type: "spring" }}
-            className="text-center"
+            transition={{ duration: 1.5, type: "spring", bounce: 0.4 }}
+            className="flex flex-col items-center"
           >
-            {/* Sparkles effect */}
-            {Array.from({ length: 50 }).map((_, i) => (
-              <motion.div
-                key={`sparkle-${i}`}
-                className="absolute w-2 h-2 bg-primary-foreground rounded-full shadow-[0_0_10px_#F2E5C5]"
-                initial={{
-                  x: 0,
-                  y: 0,
-                  opacity: 1
-                }}
-                animate={{
-                  x: (Math.random() - 0.5) * 600,
-                  y: (Math.random() - 0.5) * 600,
-                  opacity: 0,
-                  scale: Math.random() * 3
-                }}
-                transition={{
-                  duration: Math.random() * 2 + 1.5,
-                  ease: "easeOut",
-                }}
-              />
-            ))}
-            <h1 
-              className="text-6xl md:text-8xl lg:text-9xl font-serif text-transparent bg-clip-text bg-gradient-to-br from-primary-foreground via-[#F2E5C5] to-[#D4AF37] drop-shadow-[0_0_20px_rgba(242,229,197,0.4)] leading-tight"
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 1 }}
+              className="mb-6 flex gap-2 text-[#F2E5C5]"
+            >
+              <Heart fill="currentColor" size={24} className="animate-pulse" />
+              <span className="uppercase tracking-[0.5em] text-sm">Today is the day</span>
+              <Heart fill="currentColor" size={24} className="animate-pulse" />
+            </motion.div>
+
+            <h1
+              className="text-6xl md:text-8xl lg:text-9xl font-serif text-transparent bg-clip-text bg-gradient-to-br from-primary-foreground via-[#F2E5C5] to-[#D4AF37] drop-shadow-[0_0_30px_rgba(242,229,197,0.4)] leading-tight mb-8"
               data-testid="text-happy-birthday"
             >
-              Happy Birthday, <br/><span className="italic">My Love!</span> 🎂
+              Happy Birthday, <br /><span className="italic">Leeshaa!</span> 🎂
             </h1>
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.2, duration: 1 }}
+              className="text-primary-foreground/80 font-sans text-xl md:text-2xl italic max-w-2xl mx-auto leading-relaxed"
+            >
+              "To the girl, I love the most."
+            </motion.p>
           </motion.div>
         )}
       </div>
 
-      <motion.div 
-        className="absolute bottom-8 md:bottom-12 flex flex-col items-center gap-2 cursor-pointer text-primary-foreground/60 hover:text-primary-foreground transition-colors z-20"
-        animate={{ y: [0, 12, 0] }}
+      <motion.div
+        className="absolute bottom-8 md:bottom-12 flex flex-col items-center gap-4 cursor-pointer text-primary-foreground/60 hover:text-primary-foreground transition-colors z-20"
+        animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
         onClick={() => {
           document.getElementById('timeline')?.scrollIntoView({ behavior: 'smooth' });
         }}
         data-testid="button-scroll-down"
       >
-        <span className="text-[10px] sm:text-xs uppercase tracking-[0.3em] font-sans">Scroll</span>
-        <ChevronDown size={20} strokeWidth={1.5} className="mt-1" />
+        <span className="text-xs uppercase tracking-[0.4em] font-sans">
+          {isZero ? "Our Story Starts Here" : "Scroll"}
+        </span>
+        <div className={`w-10 h-10 rounded-full border border-primary-foreground/20 flex items-center justify-center ${!isZero && "border-none"}`}>
+          <ChevronDown size={20} strokeWidth={1.5} />
+        </div>
       </motion.div>
     </section>
   );

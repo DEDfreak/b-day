@@ -1,6 +1,8 @@
 import img1 from "@/assets/images/placeholder-1.png";
 import img2 from "@/assets/images/placeholder-2.png";
 import img3 from "@/assets/images/placeholder-3.png";
+import img4 from "@/assets/images/Lb.jpeg";
+import img5 from "@/assets/images/lb2.jpeg";
 
 export interface Memory {
     id: string;
@@ -19,8 +21,8 @@ export const timelineEvents: Memory[] = [
         title: "Where it all started",
         message: "That first message that changed everything. I still remember the butterflies.",
         fullStory: "It was a quiet evening when that notification popped up. A simple 'hello' that I didn't know would become the most important word in my life. We talked for hours, finding connections in the smallest things. The way you described your day, your passion for music, and that subtle wit—I was hooked before we even met in person.",
-        image: img1,
-        gallery: [img1, img2, img3]
+        image: img4,
+        gallery: [img4, img5, img3]
     },
     {
         id: "first-date",
