@@ -1,11 +1,17 @@
 import { useParams, useLocation } from "wouter";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { timelineEvents } from "@/lib/data";
-import { ArrowLeft, Heart } from "lucide-react";
+import { ArrowLeft, Heart, Lock } from "lucide-react";
 import { useEffect } from "react";
 
-export default function MemoryPage() {
-    const { id } = useParams();
+interface MemoryPageProps {
+    id?: string;
+    onLock?: () => void;
+}
+
+export default function MemoryPage({ id: propId, onLock }: MemoryPageProps) {
+    const params = useParams();
+    const id = propId || params.id;
     const [, setLocation] = useLocation();
     const memory = timelineEvents.find((m) => m.id === id);
 
@@ -23,7 +29,19 @@ export default function MemoryPage() {
     }
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-[#3A000C] to-[#550B18] text-primary-foreground overflow-x-hidden">
+        <div className="min-h-screen bg-gradient-to-b from-[#3A000C] to-[#550B18] text-primary-foreground overflow-x-hidden relative">
+            {onLock && (
+                <motion.button
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    onClick={onLock}
+                    className="fixed top-6 right-6 z-[100] w-12 h-12 bg-white/10 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center text-[#F2E5C5] hover:bg-white/20 transition-all shadow-xl"
+                >
+                    <Lock size={20} />
+                </motion.button>
+            )}
             {/* Hero Section */}
             <section className="relative h-[70vh] md:h-[80vh] w-full overflow-hidden">
                 <motion.div

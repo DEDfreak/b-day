@@ -20,6 +20,11 @@ function Router() {
     localStorage.setItem("site_unlocked", "true");
   };
 
+  const handleLock = () => {
+    setUnlocked(false);
+    localStorage.removeItem("site_unlocked");
+  };
+
   return (
     <Switch>
       <Route path="/preview">
@@ -29,14 +34,20 @@ function Router() {
         }}
       </Route>
 
+      <Route path="/secret">
+        <AuthPage onUnlock={handleUnlock} />
+      </Route>
+
       {!unlocked ? (
         <Route>
           <AuthPage onUnlock={handleUnlock} />
         </Route>
       ) : (
         <>
-          <Route path="/">{() => <Home />}</Route>
-          <Route path="/memory/:id" component={MemoryPage} />
+          <Route path="/">{() => <Home onLock={handleLock} />}</Route>
+          <Route path="/memory/:id">
+            {(params) => <MemoryPage id={params.id} onLock={handleLock} />}
+          </Route>
           <Route component={NotFound} />
         </>
       )}

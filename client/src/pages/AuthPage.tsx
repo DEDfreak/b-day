@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Heart, Lock, Unlock } from "lucide-react";
+import { useLocation } from "wouter";
 
 interface AuthPageProps {
     onUnlock: () => void;
 }
 
 export default function AuthPage({ onUnlock }: AuthPageProps) {
+    const [, setLocation] = useLocation();
     const [input, setInput] = useState("");
     const [isError, setIsError] = useState(false);
     const secret = "rishit i love you so much";
@@ -15,6 +17,7 @@ export default function AuthPage({ onUnlock }: AuthPageProps) {
         e.preventDefault();
         if (input.toLowerCase().trim() === secret.toLowerCase()) {
             onUnlock();
+            setLocation("/");
         } else {
             setIsError(true);
             setTimeout(() => setIsError(false), 500);
