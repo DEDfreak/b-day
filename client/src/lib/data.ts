@@ -135,7 +135,7 @@ You ruined me, and I am so grateful.`,
     {
         id: "thick-n-thin",
         date: "Thick n thin",
-        title: "Rough n Rougher",
+        title: "Rough Nights",
         message: "Love n Fights",
         fullStory: `Yes, our fights are a part of my memory too, because they are just as much a part of us as the good days.
 Its true we fight a lot. Fights that are mostly initiated because of my blunders. Fights which push you to break up with me. I am a very stupid person leeshaa, and I tend to do fucked up things. Things I don't mean and those things which make you feel like you hate me. 
