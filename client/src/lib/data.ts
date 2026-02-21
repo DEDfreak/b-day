@@ -14,6 +14,12 @@ import img11 from "@/assets/images/r&n-mem2.jpeg";
 import img12 from "@/assets/images/gf-mem2.jpeg";
 import img13 from "@/assets/images/or-mem2.jpeg";
 
+import img15 from "@/assets/images/bik-mem3.jpeg";
+import img16 from "@/assets/images/mirror-mem3.jpeg";
+import img17 from "@/assets/images/edit-cover-mem3.jpeg";
+import img18 from "@/assets/images/conc-mem3.jpeg";
+import img19 from "@/assets/images/kiss-mem3.jpeg";
+
 
 // Set target to Feb 22, 2026, midnight
 export const TARGET_DATE = new Date("2026-02-22T00:00:00").getTime();
@@ -89,8 +95,8 @@ I think you sounded so adorable on call, struggling to say it out loud. I kind o
 
 Finally, we met at Mood Indigo and it was the first place where we said 'i love you' to each other, in person. We got our pics taken by someone else for the first time, and it was our first concert together. Wow... so many firsts in one day. I enjoy thinking about that day too. You looked stunning, as always. I couldn't keep my eyes off you.
 p.s. i loved the makeout too (vvhot&spicy)`,
-        image: img3,
-        gallery: [img3, img1, img2]
+        image: img17,
+        gallery: [img15, img16, img17, img18, img19]
     },
     {
         id: "our-home",
@@ -108,6 +114,23 @@ There’s something about your presence… when you walk into a room, everything
 
 With you i feel like i belong exactly there. It feels warm, real and something i always longed for. I feel greatful for you. And if there is one thing that i know for sure, its that I always and forever want to be with you. Muah!`,
         image: img2,
+    },
+    {
+        id: "secret 5",
+        date: "NSFW",
+        title: "Hornier than ever",
+        message: "Hornier than ever",
+        fullStory: `This deserves a separate section in the memory timeline. I don't think I tell you this enough; your touch is fucking electric. Fuck touch, the moment you even smile at me (even with two less tooth), my soldier snaps to attention. 
+
+Recently i was trying to explain a friend what i feel. I eventually came down to: i don't just love you, I'm addicted to your body. You absolute goddess. You are so indulgent. You are like cake and i wanna devour you every time i lay my eyes on you. 
+
+I absolutely love every square inch off you. I wish i could lick each and every curve of yours and suck on your nips all day. I can't wait to start living together, so that i can use as my sex doll anytime and anywhere. Thank fuck you are as freaky as me.
+
+I think very early into our relationship we had discovered 'pleasure'. The kind of pleasure, i thought existed only in unrealistic porn and fantasies. God, i wish i could like eat u up with a spoon and a fork over and over. Honestly, it was so hard to hold back at the start. Each and every day felt like a quest. A quest to explore you lower and lower. 
+
+And then because of your wonderfully, beautifully, gloriously horny self one fine afternoon we had SEX, and honestly? I've been hooked ever since. Addicted in the best way possible. Like nothing else compares, because nothing else does.
+You ruined me, and I am so grateful.`,
+        image: img3,
     },
     {
         id: "thick-n-thin",
