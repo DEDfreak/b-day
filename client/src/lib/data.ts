@@ -80,16 +80,15 @@ Then came our first kiss. It was the perfect setting. I hesitated at first, but 
         message: "I wanted to say it first.",
         fullStory: `I remember when you brought me a pizza, to celebrate my selection into the Hackathon. Leeshaa, You are so goddamn supportive, and i love you so much for it. I think that day when i came back from my internship and i saw you on the road with a pizza in your hand, i think that was the day when i fell in love love with you.
 
-I always notice how much you care about me. You remember little things about me that even I forget myself. You have a very sharp and beautiful memory when it comes to 'us' you know. I value that a lot. I value how much you care about little things. 
+I always notice how much you care about me. You remember little things about me that even I forget myself. You have a very sharp and beautiful memory when it comes to 'us' you know. I love how deeply you care about the smallest things. Somewhere inside me, I always felt the same and being with you brought back a part of me I didn’t even realize I had lost. Those little things started to matter to me again, because with you, they felt worth it. You reminded me that, in the end, it’s the smallest moments that make love feel the most real.
 
-You know about the three little words... I regret not saying it first. I already knew I loved you and I felt that you loved me too. At the start, we used to almost say it out loud. I LIKE YOU SOOO MUCH.
+You know about the three little words... I regret not saying it first. I already knew I loved you and I felt that you loved me too. I remember i slipped once and said it accidentally while cutting the call. At the start, we used to almost say it out loud. ("I LIKE YOU SOOO MUCH") Genuinely, i miss that a lot. I felt used to feel so frustrated thinking about if its the right time or not? 
 
-I had everything planned, i was going to say it to you in the Sonu Nigam concert. But ugh. 
+I had everything planned, i was going to say it to you in the Sonu Nigam concert. But ugh. I will never forget that night. 
+I think you sounded so adorable on call, struggling to say it out loud. I kind off knew what you were talking about but then i thought i cant steal the moment from you. So 'I' let you say it. You were so flushed and embarassed that you had to take a timeout. hehe. 
 
-I think you sounded so adorable when you were trying to say it out loud. I kind off knew what you were talking about but then i thought i cant steal the moment from you. So i let you say it. You were so flushed and embarassed that you had to take a timeout. hehe. 
-
-Mood Indigo was the first place where we said 'i love you' to each other, in person. I enjoy thinking about that day too. You looked stunning, as always. I couldn't keep my hands of you. 
-p.s. i loved the makeout too (vvhot)`,
+Finally, we met at Mood Indigo and it was the first place where we said 'i love you' to each other, in person. We got our pics taken by someone else for the first time, and it was our first concert together. Wow... so many firsts in one day. I enjoy thinking about that day too. You looked stunning, as always. I couldn't keep my eyes off you.
+p.s. i loved the makeout too (vvhot&spicy)`,
         image: img3,
         gallery: [img3, img1, img2]
     },
@@ -130,7 +129,7 @@ With you i feel like i belong exactly there. It feels warm, real and something i
         id: "secret 3",
         date: "secret",
         title: "Celebrating You",
-        message: "Happy Birthday to my favorite person. You make every day a gift.",
+        message: "Happy Birthday to my favorite person.",
         fullStory: "Today is all about you, Leeshaa. The world became a brighter place the day you were born. I'm so grateful I get to walk through life by your side. You are my best friend, my rock, and my greatest love. Happy Birthday, beautiful. Here's to making a million more memories.",
         image: img2,
     },
