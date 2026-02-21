@@ -3,6 +3,7 @@ import { Lock } from "lucide-react";
 import { motion } from "framer-motion";
 import Countdown from "@/components/Countdown";
 import Timeline from "@/components/Timeline";
+import { TARGET_DATE } from "@/lib/data";
 
 interface HomeProps {
   isPreview?: boolean;
@@ -11,6 +12,21 @@ interface HomeProps {
 
 export default function Home({ isPreview = false, onLock }: HomeProps) {
   const [isCoundownOver, setIsCountdownOver] = useState(isPreview);
+
+  useEffect(() => {
+    // Heartbeat to refresh unlocked states every minute
+    const interval = setInterval(() => {
+      // Forcing re-render to check isMemoryUnlocked
+      setIsCountdownOver(prev => {
+        // If it was already over from a finished countdown, keep it
+        // Otherwise check if it should be over now
+        const nowOver = isPreview || Date.now() >= TARGET_DATE;
+        return prev || nowOver;
+      });
+    }, 60000);
+
+    return () => clearInterval(interval);
+  }, [isPreview]);
 
   useEffect(() => {
     // Scroll to top on load
@@ -22,7 +38,7 @@ export default function Home({ isPreview = false, onLock }: HomeProps) {
           element.scrollIntoView({ behavior: "smooth" });
         }
       }, 500);
-    } else {
+    } else if (!hash) {
       window.scrollTo(0, 0);
     }
   }, [isCoundownOver]);
@@ -45,7 +61,7 @@ export default function Home({ isPreview = false, onLock }: HomeProps) {
         forceOver={isPreview}
         onFinished={() => setIsCountdownOver(true)}
       />
-      {isCoundownOver && <Timeline />}
+      {isCoundownOver && <Timeline isPreview={isPreview} />}
     </main>
   );
 }

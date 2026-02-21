@@ -4,6 +4,23 @@ import img3 from "@/assets/images/placeholder-3.png";
 import img4 from "@/assets/images/Lb.jpeg";
 import img5 from "@/assets/images/lb2.jpeg";
 
+// Set target to Feb 22, 2026, midnight
+export const TARGET_DATE = new Date("2026-02-22T00:00:00").getTime();
+// Transition speed is 30 minutes in milliseconds
+export const UNLOCK_INTERVAL = 30 * 60 * 1000;
+
+export function isMemoryUnlocked(index: number) {
+    const now = Date.now();
+    const timeSinceStart = now - TARGET_DATE;
+
+    // If it's before the target date, none are unlocked (handled by countdown anyway)
+    if (timeSinceStart < 0) return false;
+
+    // Each memory unlocks every 30 minutes
+    const unlockedCount = Math.floor(timeSinceStart / UNLOCK_INTERVAL) + 1;
+    return index < unlockedCount;
+}
+
 export interface Memory {
     id: string;
     date: string;
@@ -69,8 +86,17 @@ p.s. i loved the makeout too (vvhot)`,
         id: "our-home",
         date: "home",
         title: "Our little Ilaka",
-        message: "Seeing you fit so perfectly into my world made me love you even more.",
-        fullStory: "I was so nervous to introduce you, not because I doubted you, but because I wanted them to see the magic I saw. Within minutes, you were laughing with my mom and debating movies with my brother. Seeing you embrace my world so effortlessly made me realize just how perfect we are together.",
+        message: "My heart feels at home.",
+        fullStory: `You were fitting so perfectly into my world, and it made me fall for you even more. Life felt so good I’ve always felt, and I still feel, like I have the best girlfriend in the world. 
+Our date nights have always been so special to me. Every moment with you feels full. I love the way you dress, and honestly, I love how you make every outfit look so effortlessly beautiful. 
+
+And I love your bold eyeliner skills. I love it when you send me your little “egghead forehead” pics, you look so unbelievably cute and gorgeous. But nothing beats your killer eyes (I'm a FANNN). I’ve always seen so much honesty and innocence in them, they’re sharp, beautiful, and impossible not to get lost in.
+
+I’ll always miss you coming to meet me and Nozu in Bhopal. That used to be my favorite part of the day. All those scooty rides in Bhopal are memories I’ll cherish forever. Exploring the city with you is still one of my favorite memories, because you made everything feel special you always tend do.
+
+There’s something about your presence… when you walk into a room, everything changes. Your aura brings this quiet sense of comfort and safety with you. I become carefree and silly around you. Quoting you, "its like when im w you i miss home a little less. like a lot less actually." I don’t think I ever told you this properly, but I feel the same, cutu. You are my home.
+
+With you i feel like i belong exactly there. It feels warm, real and something i always longed for. I feel greatful for you. And if there is one thing that i know for sure, its that I always and forever want to be with you. Muah!`,
         image: img2,
     },
     {

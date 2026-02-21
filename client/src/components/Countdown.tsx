@@ -1,10 +1,8 @@
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, Heart } from "lucide-react";
 import heroBg from "@/assets/images/hero-bg.png";
-
-// Set target to Feb 22, 2026, midnight
-const TARGET_DATE = new Date("2026-02-22T00:00:00").getTime();
+import { TARGET_DATE } from "@/lib/data";
 
 interface CountdownProps {
   forceOver?: boolean;

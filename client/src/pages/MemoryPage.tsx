@@ -1,8 +1,8 @@
 import { useParams, useLocation } from "wouter";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { timelineEvents } from "@/lib/data";
-import { ArrowLeft, Heart, Lock } from "lucide-react";
-import { useEffect } from "react";
+import { timelineEvents, isMemoryUnlocked } from "@/lib/data";
+import { ArrowLeft, Heart, Lock, AlertCircle } from "lucide-react";
+import { useEffect, useState } from "react";
 
 interface MemoryPageProps {
     id?: string;
@@ -13,7 +13,14 @@ export default function MemoryPage({ id: propId, onLock }: MemoryPageProps) {
     const params = useParams();
     const id = propId || params.id;
     const [, setLocation] = useLocation();
-    const memory = timelineEvents.find((m) => m.id === id);
+
+    // Check for preview mode in URL
+    const searchParams = new URLSearchParams(window.location.search);
+    const isPreview = searchParams.get('preview') === 'true';
+
+    const memoryIndex = timelineEvents.findIndex((m) => m.id === id);
+    const memory = memoryIndex !== -1 ? timelineEvents[memoryIndex] : null;
+    const isUnlocked = isPreview || (memoryIndex !== -1 && isMemoryUnlocked(memoryIndex));
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -22,8 +29,41 @@ export default function MemoryPage({ id: propId, onLock }: MemoryPageProps) {
     if (!memory) {
         return (
             <div className="min-h-screen flex items-center justify-center bg-background text-foreground">
-                <p>Memory not found.</p>
-                <button onClick={() => setLocation("/")}>Back</button>
+                <div className="text-center">
+                    <p className="text-2xl font-serif mb-4">Memory not found.</p>
+                    <button
+                        onClick={() => setLocation("/")}
+                        className="text-primary hover:underline font-sans uppercase tracking-widest text-xs"
+                    >
+                        Return to Home
+                    </button>
+                </div>
+            </div>
+        );
+    }
+
+    if (!isUnlocked) {
+        return (
+            <div className="min-h-screen flex items-center justify-center bg-[#3A000C] text-[#F2E5C5] p-6">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="max-w-md w-full text-center space-y-8"
+                >
+                    <div className="w-24 h-24 bg-white/5 rounded-full flex items-center justify-center mx-auto border border-white/10">
+                        <Lock size={40} className="text-[#F2E5C5]/40" />
+                    </div>
+                    <h2 className="text-4xl font-serif italic">Not Yet...</h2>
+                    <p className="text-primary-foreground/60 leading-relaxed">
+                        This memory is still precious and being kept safe. Check back again later to unlock this chapter of our story.
+                    </p>
+                    <button
+                        onClick={() => setLocation("/")}
+                        className="px-8 py-3 bg-[#F2E5C5] text-[#3A000C] rounded-full font-sans font-bold uppercase tracking-widest text-xs hover:scale-105 transition-transform"
+                    >
+                        Back to Timeline
+                    </button>
+                </motion.div>
             </div>
         );
     }

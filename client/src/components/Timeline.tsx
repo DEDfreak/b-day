@@ -1,10 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform, useSpring, useInView } from "framer-motion";
-import { Heart } from "lucide-react";
+import { Heart, Lock as LockIcon } from "lucide-react";
 import { Link } from "wouter";
-import { timelineEvents } from "@/lib/data";
+import { timelineEvents, isMemoryUnlocked } from "@/lib/data";
 
-export default function Timeline() {
+interface TimelineProps {
+  isPreview?: boolean;
+}
+
+export default function Timeline({ isPreview = false }: TimelineProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const pathRef = useRef<SVGPathElement>(null);
   const [pathData, setPathData] = useState("");
@@ -151,6 +155,7 @@ export default function Timeline() {
               pathRef={pathRef}
               pathLength={pathLength}
               progress={smoothProgress}
+              isPreview={isPreview}
             />
           ))}
         </div>
@@ -159,7 +164,7 @@ export default function Timeline() {
   );
 }
 
-function TimelineItem({ event, index, pathRef, pathLength, progress }: any) {
+function TimelineItem({ event, index, pathRef, pathLength, progress, isPreview }: any) {
   const itemRef = useRef(null);
   const isInView = useInView(itemRef, { once: false, margin: "-20% 0px -20% 0px" });
   const [pos, setPos] = useState({ x: 0, y: 0 });
@@ -174,6 +179,7 @@ function TimelineItem({ event, index, pathRef, pathLength, progress }: any) {
   }, [pathLength, index]);
 
   const isEven = index % 2 === 0;
+  const unlocked = isPreview || isMemoryUnlocked(index);
 
   return (
     <div
@@ -212,15 +218,25 @@ function TimelineItem({ event, index, pathRef, pathLength, progress }: any) {
               damping: 15,
               delay: 0.2
             }}
-            className="polaroid max-w-[280px] md:max-w-sm group"
+            className="polaroid max-w-[280px] md:max-w-sm group relative"
           >
-            <div className="aspect-[4/5] overflow-hidden mb-5">
+            <div className={`aspect-[4/5] overflow-hidden mb-5 transition-all duration-700 ${!unlocked ? 'blur-xl grayscale' : ''}`}>
               <img
                 src={event.image}
                 alt={event.title}
                 className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-700"
               />
             </div>
+
+            {!unlocked && (
+              <div className="absolute inset-0 flex flex-col items-center justify-center z-10 bg-black/20 backdrop-blur-sm">
+                <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center mb-4">
+                  <LockIcon className="text-white" size={32} />
+                </div>
+                <p className="text-white font-serif italic text-sm">Locked Moment</p>
+              </div>
+            )}
+
             <p className="font-serif text-center italic text-foreground/60">{event.date}</p>
           </motion.div>
         </div>
@@ -232,26 +248,35 @@ function TimelineItem({ event, index, pathRef, pathLength, progress }: any) {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className={`text-center ${isEven ? 'md:text-left' : 'md:text-right'}`}
+            className={`text-center ${isEven ? 'md:text-left' : 'md:text-right'} ${!unlocked ? 'opacity-50' : ''}`}
           >
             <span className="text-xs font-sans tracking-[0.3em] uppercase text-primary font-bold mb-4 block">
               {event.date}
             </span>
             <h3 className="text-3xl md:text-5xl font-serif text-foreground mb-6 leading-tight">
-              {event.title}
+              {unlocked ? event.title : "???"}
             </h3>
             <p className="text-lg md:text-2xl font-sans text-foreground/80 font-light italic leading-relaxed mb-8">
-              "{event.message}"
+              {unlocked ? `"${event.message}"` : "This story is still waiting to be told..."}
             </p>
-            <Link href={`/memory/${event.id}`}>
-              <motion.button
-                whileHover={{ scale: 1.05, x: isEven ? 10 : -10 }}
-                whileTap={{ scale: 0.95 }}
-                className="text-primary font-sans tracking-[0.2em] uppercase text-sm font-bold border-b-2 border-primary/30 pb-1 hover:border-primary transition-colors"
-              >
-                Open Our Memory →
-              </motion.button>
-            </Link>
+
+            {unlocked ? (
+              <Link href={`/memory/${event.id}${isPreview ? '?preview=true' : ''}`}>
+                <motion.button
+                  whileHover={{ scale: 1.05, x: isEven ? 10 : -10 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="text-primary font-sans tracking-[0.2em] uppercase text-sm font-bold border-b-2 border-primary/30 pb-1 hover:border-primary transition-colors"
+                >
+                  Open Our Memory →
+                </motion.button>
+              </Link>
+            ) : (
+              <div className="flex items-center gap-3 justify-center md:justify-start">
+                <span className="text-primary/40 font-sans tracking-[0.2em] uppercase text-xs font-bold">
+                  Unlocks soon
+                </span>
+              </div>
+            )}
           </motion.div>
         </div>
       </div>
