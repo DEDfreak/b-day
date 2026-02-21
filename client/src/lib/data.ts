@@ -71,7 +71,7 @@ At that point I honestly didn't think we would meet again. I already knew i had 
 
 And then came the moment of our very first KISS. It was the perfect setting. The soft chill car's ac, nozu in your lap, you dressed in traditional, the songs and everything felt so emotional and romantic. I hesitated for a second, but obviously i would have been a fool not to kiss you that day. Things were so complicated but I'm so glad everything worked out eventually. You stayed strong through everything, that made me respect you even more. I will always admire your resolve, intentions, thought process and the things you stand for. You have so much guts. You risked things just to be with me. I knew you were the right person, i just wanted to make u feel the same about me too. Every day has been amazing since. I just had to ask you to be my girlfriend now...`,
         image: img4,
-        gallery: [img4, img5, img12, img13]
+        gallery: [img4, img5, img12, img13, img11]
     },
     {
         id: "i-love-you",
