@@ -16,8 +16,8 @@ export function isMemoryUnlocked(index: number) {
     // If it's before the target date, none are unlocked (handled by countdown anyway)
     if (timeSinceStart < 0) return false;
 
-    // Each memory unlocks every 30 minutes
-    const unlockedCount = Math.floor(timeSinceStart / UNLOCK_INTERVAL) + 1;
+    // Each memory unlocks every 30 minutes, starting 30 mins after midnight
+    const unlockedCount = Math.floor(timeSinceStart / UNLOCK_INTERVAL);
     return index < unlockedCount;
 }
 
