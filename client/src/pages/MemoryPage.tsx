@@ -99,27 +99,66 @@ export default function MemoryPage() {
                     </div>
                 </motion.div>
 
-                {/* Gallery Section */}
+                {/* Innovation: Interactive 3D Stack Gallery */}
                 {memory.gallery && memory.gallery.length > 0 && (
-                    <div className="mt-32">
-                        <h3 className="text-center font-serif text-3xl italic text-[#F2E5C5] mb-12">More Moments</h3>
-                        <div className="flex gap-8 overflow-x-auto pb-12 px-4 no-scrollbar -mx-6 md:mx-0">
-                            {memory.gallery.map((img, i) => (
-                                <motion.div
-                                    key={i}
-                                    initial={{ opacity: 0, scale: 0.8, rotate: i % 2 === 0 ? -5 : 5 }}
-                                    whileInView={{ opacity: 1, scale: 1 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: i * 0.1 }}
-                                    whileHover={{ scale: 1.05, rotate: 0 }}
-                                    className="flex-shrink-0 w-64 md:w-80 bg-white p-4 shadow-xl"
-                                >
-                                    <div className="aspect-[4/5] overflow-hidden bg-gray-100 mb-4">
-                                        <img src={img} className="w-full h-full object-cover" alt={`Gallery ${i}`} />
-                                    </div>
-                                </motion.div>
-                            ))}
+                    <div className="mt-40 relative min-h-[600px] flex flex-col items-center">
+                        <h3 className="text-center font-serif text-3xl italic text-[#F2E5C5] mb-24">Captured Moments</h3>
+
+                        <div className="relative w-full max-w-4xl h-[450px] flex justify-center items-center">
+                            {memory.gallery.map((img, i) => {
+                                const rotation = (i - (memory.gallery!.length - 1) / 2) * 20;
+                                const xOffset = (i - (memory.gallery!.length - 1) / 2) * 110;
+
+                                return (
+                                    <motion.div
+                                        key={i}
+                                        initial={{ opacity: 0, y: 100, rotate: 0, x: 0 }}
+                                        whileInView={{
+                                            opacity: 1,
+                                            y: 0,
+                                            rotate: rotation,
+                                            x: xOffset,
+                                            zIndex: i
+                                        }}
+                                        viewport={{ once: true, margin: "-50px" }}
+                                        whileHover={{
+                                            scale: 1.15,
+                                            rotate: 0,
+                                            y: -50,
+                                            x: xOffset,
+                                            zIndex: 200,
+                                            transition: { duration: 0.4, ease: "easeOut" }
+                                        }}
+                                        transition={{
+                                            type: "spring",
+                                            stiffness: 60,
+                                            damping: 18,
+                                            delay: i * 0.1
+                                        }}
+                                        className="absolute w-64 md:w-80 bg-white p-4 md:p-5 shadow-[0_25px_60px_rgba(0,0,0,0.5)] cursor-pointer"
+                                        style={{
+                                            transformOrigin: "center center",
+                                        }}
+                                    >
+                                        <div className="aspect-[4/5] overflow-hidden bg-gray-100 mb-3">
+                                            <img
+                                                src={img}
+                                                className="w-full h-full object-cover"
+                                                alt={`Moment ${i}`}
+                                                loading="lazy"
+                                            />
+                                        </div>
+                                        <div className="h-6 flex items-center justify-center">
+                                            <div className="w-12 h-1 bg-gray-100 rounded-full" />
+                                        </div>
+                                    </motion.div>
+                                );
+                            })}
                         </div>
+
+                        <p className="mt-28 text-[#F2E5C5]/40 text-[10px] tracking-[0.6em] uppercase animate-pulse">
+                            Reach out to explore the memories
+                        </p>
                     </div>
                 )}
 
