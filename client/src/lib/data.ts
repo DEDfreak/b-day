@@ -100,7 +100,7 @@ With you i feel like i belong exactly there. It feels warm, real and something i
         image: img2,
     },
     {
-        id: "moving-in",
+        id: "secret",
         date: "Moving In",
         title: "Our Own Space",
         message: "Turning a house into a home, one memory at a time. I love our life together.",
@@ -108,7 +108,7 @@ With you i feel like i belong exactly there. It feels warm, real and something i
         image: img3,
     },
     {
-        id: "first-anniversary",
+        id: "secret 2",
         date: "One Year Down",
         title: "One Year Down",
         message: "A year of growth, laughter, and so much love. Here's to forever.",
@@ -116,7 +116,7 @@ With you i feel like i belong exactly there. It feels warm, real and something i
         image: img1,
     },
     {
-        id: "today",
+        id: "secret 3",
         date: "Today",
         title: "Celebrating You",
         message: "Happy Birthday to my favorite person. You make every day a gift.",
