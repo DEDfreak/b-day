@@ -1,4 +1,4 @@
-import { Switch, Route } from "wouter";
+import { Switch, Route, useLocation } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -12,6 +12,7 @@ import BackgroundMusic from "@/components/BackgroundMusic";
 // import BirthdayPreview from "@/pages/BirthdayPreview";
 
 function Router() {
+  const [location] = useLocation();
   const [unlocked, setUnlocked] = useState(() => {
     return localStorage.getItem("site_unlocked") === "true";
   });
@@ -26,39 +27,35 @@ function Router() {
     localStorage.removeItem("site_unlocked");
   };
 
+  const isPreview = location === "/preview";
+
   return (
-    <Switch>
-      <Route path="/preview">
-        {() => {
-          // Special preview route that bypasses auth and countdown
-          return (
-            <>
-              <BackgroundMusic />
-              <Home isPreview={true} />
-            </>
-          );
-        }}
-      </Route>
+    <>
+      {(unlocked || isPreview) && <BackgroundMusic />}
+      <Switch>
+        <Route path="/preview">
+          {() => <Home isPreview={true} />}
+        </Route>
 
-      <Route path="/secret">
-        <AuthPage onUnlock={handleUnlock} />
-      </Route>
-
-      {!unlocked ? (
-        <Route>
+        <Route path="/secret">
           <AuthPage onUnlock={handleUnlock} />
         </Route>
-      ) : (
-        <>
-          <BackgroundMusic />
-          <Route path="/">{() => <Home onLock={handleLock} />}</Route>
-          <Route path="/memory/:id">
-            {(params) => <MemoryPage id={params.id} onLock={handleLock} />}
+
+        {!unlocked ? (
+          <Route>
+            <AuthPage onUnlock={handleUnlock} />
           </Route>
-          <Route component={NotFound} />
-        </>
-      )}
-    </Switch>
+        ) : (
+          <>
+            <Route path="/">{() => <Home onLock={handleLock} />}</Route>
+            <Route path="/memory/:id">
+              {(params) => <MemoryPage id={params.id} onLock={handleLock} />}
+            </Route>
+            <Route component={NotFound} />
+          </>
+        )}
+      </Switch>
+    </>
   );
 }
 

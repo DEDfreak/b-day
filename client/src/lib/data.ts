@@ -137,7 +137,18 @@ You ruined me, and I am so grateful.`,
         date: "Thick n thin",
         title: "Rough n Rougher",
         message: "Love n Fights",
-        fullStory: "",
+        fullStory: `Yes, our fights are a part of my memory too, because they are just as much a part of us as the good days.
+Its true we fight a lot. Fights that are mostly initiated because of my blunders. Fights which push you to break up with me. I am a very stupid person leeshaa, and I tend to do fucked up things. Things I don't mean and those things which make you feel like you hate me. 
+
+Most of them start because of me. My blunders, my stupidity, my habit of doing and saying things I don't mean. Things that hurt you in ways I never intended. Things that make you look at me like you hate me and honestly, in those moments, I don't blame you. I've pushed you to your limit more times than I'd like  to admit. Pushed you to the edge of walking away entirely.
+
+We are both stubborn as hell and we both refuse to back down easily. But somewhere along the way, something changed. I softened slowly and genuinely and changed my ways, and so did you. We started learning each others triggers.
+
+We fight A LOT, sometimes to the point where everything falls apart and it seems like there is no coming back from this, but we always do. Because somewhere beneath all the anger and the hurt, we both know that this is it. You are it for me. And no matter how worse the fight gets the truth does not go anywhere.
+
+Other couples fight too. I know that. But they don't fight for what we fight for. And they don't fight like us that ugly, everything-on-the-table kind of fighting that only happens when the stakes are real. When you love someone so much that losing them feels unbearable. 
+
+Our fights scared me sometimes. But they never once made me want to give up on you. I am really sorry for all the trouble and hurt I have caused you and I hope you can forgive me. I love you.`,
         image: img3,
     },
     {

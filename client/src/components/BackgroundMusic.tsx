@@ -9,24 +9,38 @@ export default function BackgroundMusic() {
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
-        // Try to autoplay once component mounts
-        // Note: Browsers usually block this until user interacts
+        const audio = audioRef.current;
+        if (!audio) return;
+
         const attemptPlay = () => {
-            if (audioRef.current) {
-                audioRef.current.play()
-                    .then(() => setIsPlaying(true))
-                    .catch(() => {
-                        console.log("Autoplay blocked, waiting for user interaction");
-                        setIsPlaying(false);
-                    });
-            }
+            audio.play()
+                .then(() => setIsPlaying(true))
+                .catch(() => {
+                    console.log("Autoplay blocked, waiting for interaction");
+                    setIsPlaying(false);
+                });
         };
 
+        // Try immediately
         attemptPlay();
+
+        // Also try on first interaction anywhere on the document
+        const handleFirstInteraction = () => {
+            if (audio.paused) {
+                attemptPlay();
+            }
+            window.removeEventListener('click', handleFirstInteraction);
+        };
+
+        window.addEventListener('click', handleFirstInteraction);
 
         // Show the button after a small delay
         const timer = setTimeout(() => setIsVisible(true), 1500);
-        return () => clearTimeout(timer);
+
+        return () => {
+            window.removeEventListener('click', handleFirstInteraction);
+            clearTimeout(timer);
+        };
     }, []);
 
     const togglePlay = () => {
@@ -61,7 +75,7 @@ export default function BackgroundMusic() {
                         <motion.div
                             initial={{ width: 0, opacity: 0 }}
                             whileHover={{ width: "auto", opacity: 1 }}
-                            className="bg-white/10 backdrop-blur-md border border-white/20 px-3 py-2 rounded-full hidden md:flex items-center gap-2 overflow-hidden whitespace-nowrap text-[#F2E5C5] text-xs font-sans tracking-widest uppercase"
+                            className="bg-black/40 backdrop-blur-lg border border-white/10 px-3 py-2 rounded-full hidden md:flex items-center gap-2 overflow-hidden whitespace-nowrap text-white text-xs font-sans tracking-widest uppercase"
                         >
                             <Music size={12} className={isPlaying ? "animate-spin-slow" : ""} />
                             <span>{isPlaying ? "Now Playing: L.O.V.E" : "Music Paused"}</span>
@@ -71,7 +85,7 @@ export default function BackgroundMusic() {
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
                             onClick={togglePlay}
-                            className="w-12 h-12 bg-white/10 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center text-[#F2E5C5] hover:bg-white/20 transition-all shadow-[0_10px_30px_rgba(0,0,0,0.3)] group relative"
+                            className="w-12 h-12 bg-black/40 backdrop-blur-lg border border-white/10 rounded-full flex items-center justify-center text-white hover:bg-black/60 transition-all shadow-[0_8px_32px_rgba(0,0,0,0.4)] group relative"
                         >
                             <AnimatePresence mode="wait">
                                 {isPlaying ? (
