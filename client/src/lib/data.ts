@@ -18,7 +18,7 @@ import img13 from "@/assets/images/or-mem2.jpeg";
 // Set target to Feb 22, 2026, midnight
 export const TARGET_DATE = new Date("2026-02-22T00:00:00").getTime();
 // Transition speed is 30 minutes in milliseconds
-export const UNLOCK_INTERVAL = 75 * 60 * 1000;
+export const UNLOCK_INTERVAL = 90 * 60 * 1000;
 
 export function isMemoryUnlocked(index: number) {
     const now = Date.now();
