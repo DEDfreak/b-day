@@ -1,60 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform, useSpring, useInView } from "framer-motion";
 import { Heart } from "lucide-react";
-import img1 from "@/assets/images/placeholder-1.png";
-import img2 from "@/assets/images/placeholder-2.png";
-import img3 from "@/assets/images/placeholder-3.png";
-
-const timelineEvents = [
-  {
-    date: "First Hello",
-    title: "Where it all started",
-    message: "That first message that changed everything. I still remember the butterflies.",
-    image: img1,
-  },
-  {
-    date: "Our First Date",
-    title: "Coffee & Conversation",
-    message: "Hours felt like minutes. I knew then that you were someone incredibly special.",
-    image: img2,
-  },
-  {
-    date: "First Trip Together",
-    title: "Chasing Sunsets",
-    message: "Exploring the world is better with you by my side. Every sunset felt magical.",
-    image: img3,
-  },
-  {
-    date: "The 'I Love You'",
-    title: "Three Little Words",
-    message: "The moment the world stood still and I finally said what my heart already knew.",
-    image: img1,
-  },
-  {
-    date: "Meeting the Family",
-    title: "Nerves & Smiles",
-    message: "Seeing you fit so perfectly into my world made me love you even more.",
-    image: img2,
-  },
-  {
-    date: "Moving In",
-    title: "Our Own Space",
-    message: "Turning a house into a home, one memory at a time. I love our life together.",
-    image: img3,
-  },
-  {
-    date: "First Anniversary",
-    title: "One Year Down",
-    message: "A year of growth, laughter, and so much love. Here's to forever.",
-    image: img1,
-  },
-  {
-    date: "Today",
-    title: "Celebrating You",
-    message: "Happy Birthday to my favorite person. You make every day a gift.",
-    image: img2,
-  },
-];
+import { Link } from "wouter";
+import { timelineEvents } from "@/lib/data";
 
 export default function Timeline() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -230,6 +178,7 @@ function TimelineItem({ event, index, pathRef, pathLength, progress }: any) {
   return (
     <div
       ref={itemRef}
+      id={`memory-${event.id}`}
       className="relative mb-48 md:mb-64 min-h-[400px]"
       style={{ top: 0 }}
     >
@@ -291,9 +240,18 @@ function TimelineItem({ event, index, pathRef, pathLength, progress }: any) {
             <h3 className="text-3xl md:text-5xl font-serif text-foreground mb-6 leading-tight">
               {event.title}
             </h3>
-            <p className="text-lg md:text-2xl font-sans text-foreground/80 font-light italic leading-relaxed">
+            <p className="text-lg md:text-2xl font-sans text-foreground/80 font-light italic leading-relaxed mb-8">
               "{event.message}"
             </p>
+            <Link href={`/memory/${event.id}`}>
+              <motion.button
+                whileHover={{ scale: 1.05, x: isEven ? 10 : -10 }}
+                whileTap={{ scale: 0.95 }}
+                className="text-primary font-sans tracking-[0.2em] uppercase text-sm font-bold border-b-2 border-primary/30 pb-1 hover:border-primary transition-colors"
+              >
+                Open Our Memory →
+              </motion.button>
+            </Link>
           </motion.div>
         </div>
       </div>
