@@ -48,7 +48,7 @@ We soon bonded over texts and calls. I started to feel like a kid again. I still
 
 I didn’t know what image of me you had in your mind, but I wanted to show you that I wasn’t a bad person, no matter what kind of situation we were in. Eventually, I developed a huge crush on you. And I won’t lie, I questioned a lot of things, I was afraid to develop one sided feelings, but deep down I knew what I was feeling was pure.
 
-Now that i think of it, there were so many green flags. I felt so many things for the first time. Secretly you were defining what love is for me. From our conversations, i could quickly gather what kind of a person you are. I had never met someone so mature, understanding, sweet and lovely human like you. Your extreme hotness and beauty were a pile of cherry on top. It felt amazing to feel like a boy again to eagerly wait for your texts and to take intentional pauses before replying, just to avoid looking desperate. And to wonder, does she like me back?`,
+I felt so many things for the first time, things i never thought i would feel, and somethings beyond me imagination. Secretly you were defining what love is for me. Now that i think of it, there were so many green flags. From our conversations, i could quickly gather what kind of a person you are. I had never met someone so mature, understanding, sweet and lovely human like you. Your extreme hotness and beauty were a pile of cherry on top. It felt amazing to feel like a boy again to eagerly wait for your texts and to take intentional pauses before replying, just to avoid looking desperate. And to wonder, does she like me back?`,
         image: img6,
         gallery: [img6, img7, img8, img9, img10]
     },
