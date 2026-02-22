@@ -20,6 +20,28 @@ import img17 from "@/assets/images/edit-cover-mem3.jpeg";
 import img18 from "@/assets/images/conc-mem3.jpeg";
 import img19 from "@/assets/images/kiss-mem3.jpeg";
 
+import img20 from "@/assets/images/mem4-1.jpeg";
+import img21 from "@/assets/images/mem4-2.jpeg";
+import img22 from "@/assets/images/mem4-3.jpeg";
+import img23 from "@/assets/images/mem4-4.jpeg";
+import img24 from "@/assets/images/mem4-5.jpeg";
+
+import img25 from "@/assets/images/mem5-1.jpeg";
+import img26 from "@/assets/images/mem5-2.jpeg";
+import img27 from "@/assets/images/mem5-3.jpeg";
+import img28 from "@/assets/images/mem5-4.jpeg";
+import img29 from "@/assets/images/mem5-cover.jpeg";
+
+import img30 from "@/assets/images/mem6-1.jpeg";
+import img31 from "@/assets/images/mem6-2.jpeg";
+import img32 from "@/assets/images/mem6-3.jpeg";
+import img33 from "@/assets/images/mem6-4.jpeg";
+
+import img34 from "@/assets/images/mem7-1.jpeg";
+import img35 from "@/assets/images/mem7-2.jpeg";
+import img36 from "@/assets/images/mem7-3.jpeg";
+import img37 from "@/assets/images/mem7-4.jpeg";
+
 
 // Set target to Feb 22, 2026, midnight
 export const TARGET_DATE = new Date("2026-02-22T00:00:00").getTime();
@@ -113,10 +135,11 @@ I’ll always miss you coming to meet me and Nozu in Bhopal. That used to be my 
 There’s something about your presence… when you walk into a room, everything changes. Your aura brings this quiet sense of comfort and safety with you. I become carefree and silly around you. Quoting you, "its like when im w you i miss home a little less. like a lot less actually." I don’t think I ever told you this properly, but I feel the same, cutu. You are my home.
 
 With you i feel like i belong exactly there. It feels warm, real and something i always longed for. I feel greatful for you. And if there is one thing that i know for sure, its that I always and forever want to be with you. Muah!`,
-        image: img2,
+        image: img20,
+        gallery: [img20, img21, img22, img23, img24]
     },
     {
-        id: "secret 5",
+        id: "nsfw",
         date: "NSFW",
         title: "Hornier than ever",
         message: "Hornier than ever",
@@ -132,7 +155,8 @@ And then because of your wonderfully, beautifully, gloriously horny self one fin
 You ruined me, and I am so grateful.
 
 P.S. I miss birthday sex, i wish i could fuck like i did last year.`,
-        image: img3,
+        image: img29,
+        gallery: [img25, img26, img27, img28, img29]
     },
     {
         id: "thick-n-thin",
@@ -153,7 +177,8 @@ I will always find my way back to you. I would absolutely come to you to make th
 Other couples fight too. I know that. But they don't fight for what we fight for. And they don't fight like us that ugly, everything-on-the-table kind of fighting that only happens when the stakes are real. When you love someone so much that losing them feels unbearable. 
 
 Our fights scared me sometimes. But they never once made me want to give up on you. I am really sorry for all the trouble and hurt I have caused you and I hope you can forgive me. I love you.`,
-        image: img3,
+        image: img30,
+        gallery: [img30, img31, img32, img33]
     },
     {
         id: "happy-bday",
@@ -171,6 +196,7 @@ I hope my gift made you smile, that smile that, as you already know, does absolu
 Here's to you, Leeshaa. To your laugh that makes me automatically happy. To your anger which drives me insane. To your comfort which I have come to depend on. To the ways you love me. To every fight we survived. To every beautiful moment we shared together. To every year ahead that I get to spend adding more days to this count and to this timeline.
 
 Happy Birthday, cutu. I love you more than I'll ever fully know how to say. But I will spend every one of those days trying.`,
-        image: img2,
+        image: img34,
+        gallery: [img34, img35, img36, img37]
     },
 ];
