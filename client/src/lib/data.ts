@@ -146,7 +146,9 @@ Most of them start because of me. My blunders, my stupidity, my habit of doing a
 
 We are both stubborn as hell and we both refuse to back down easily. But somewhere along the way, something changed. I softened slowly and genuinely and changed my ways, and so did you. We started learning each others triggers.
 
-We fight A LOT, sometimes to the point where everything falls apart and it seems like there is no coming back from this, but we always do. Because somewhere beneath all the anger and the hurt, we both know that this is it. You are it for me. And no matter how worse the fight gets the truth does not go anywhere.
+We fight A LOT, sometimes to the point where everything falls apart and it seems like there is no coming back from this, but we always do. Because somewhere beneath all the anger and the hurt, we both know that this is it. You are it for me. And no matter how worse the fight gets the truth does not go anywhere. 
+
+I will always find my way back to you. I would absolutely come to you to make things right again. You are right, i am scared of losing you. Terrified actually. I am scared of being ridden of something so precious and so rare. Losing you, would be losing the part of me that i love the most. So i will keep fighting for us.
 
 Other couples fight too. I know that. But they don't fight for what we fight for. And they don't fight like us that ugly, everything-on-the-table kind of fighting that only happens when the stakes are real. When you love someone so much that losing them feels unbearable. 
 
