@@ -24,7 +24,7 @@ import img19 from "@/assets/images/kiss-mem3.jpeg";
 // Set target to Feb 22, 2026, midnight
 export const TARGET_DATE = new Date("2026-02-22T00:00:00").getTime();
 // Transition speed is 30 minutes in milliseconds
-export const UNLOCK_INTERVAL = 90 * 60 * 1000;
+export const UNLOCK_INTERVAL = 130 * 60 * 1000;
 
 export function isMemoryUnlocked(index: number) {
     const now = Date.now();
@@ -129,7 +129,9 @@ I absolutely love every square inch off you. I wish i could lick each and every 
 I think very early into our relationship we had discovered 'pleasure'. The kind of pleasure, i thought existed only in unrealistic porn and fantasies. God, i wish i could like eat u up with a spoon and a fork over and over. Honestly, it was so hard to hold back at the start. Each and every day felt like a quest. A quest to explore you lower and lower. 
 
 And then because of your wonderfully, beautifully, gloriously horny self one fine afternoon we had SEX, and honestly? I've been hooked ever since. Addicted in the best way possible. Like nothing else compares, because nothing else does.
-You ruined me, and I am so grateful.`,
+You ruined me, and I am so grateful.
+
+P.S. I miss birthday sex, i wish i could fuck like i did last year.`,
         image: img3,
     },
     {
@@ -152,11 +154,21 @@ Our fights scared me sometimes. But they never once made me want to give up on y
         image: img3,
     },
     {
-        id: "secret 3",
-        date: "secret",
+        id: "happy-bday",
+        date: "Happy Birthday",
         title: "Celebrating You",
         message: "Happy Birthday to my favorite person.",
-        fullStory: "Today is all about you, Leeshaa. The world became a brighter place the day you were born. I'm so grateful I get to walk through life by your side. You are my best friend, my rock, and my greatest love. Happy Birthday, beautiful. Here's to making a million more memories.",
+        fullStory: `Its been 1year, 3 months and 16 days of pure bliss. Every day with you has been worth keeping a track of. Worth remembering and holding on to. Each day is an addition, something I wouldn't trade for anything in this world. 
+
+Just like these last 473 days, I hope there is a part of you in every day of mine going forward. I want you in every single moment. No matter if we fighting or fucking, no matter what version of us we are on that day. I want you to know that I will always love you the most. Through every version of you, every mood, and every phase.
+
+You are the absolute best thing that every happened to me. I consider myself lucky to have found you. Luck enough to find your love and lucky to have a chance to love you back. 
+
+I hope my gift made you smile, that smile that, as you already know, does absolutely unreasonable things to me.
+
+Here's to you, Leeshaa. To your laugh that makes me automatically happy. To your anger which drives me insane. To your comfort which I have come to depend on. To the ways you love me. To every fight we survived. To every beautiful moment we shared together. To every year ahead that I get to spend adding more days to this count and to this timeline.
+
+Happy Birthday, cutu. I love you more than I'll ever fully know how to say. But I will spend every one of those days trying.`,
         image: img2,
     },
 ];
